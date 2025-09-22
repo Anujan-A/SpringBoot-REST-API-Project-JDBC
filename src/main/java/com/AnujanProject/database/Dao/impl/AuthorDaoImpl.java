@@ -38,13 +38,11 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public Optional<Author> findMany(long authorId) {
-        List<Author> result = jdbcTemplate.query(
-                "SELECT id, name, age FROM authors WHERE id = ? LIMIT 10",
-                new AuthorRowMapper(),
-                authorId
+    public List<Author> findMany() {
+        return jdbcTemplate.query(
+                "SELECT id, name, age FROM authors",
+                new AuthorRowMapper()
         );
-        return result.stream().findAny();
     }
 
     public static class AuthorRowMapper implements RowMapper<Author>{

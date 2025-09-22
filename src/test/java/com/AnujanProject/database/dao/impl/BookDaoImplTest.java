@@ -40,7 +40,7 @@ public class BookDaoImplTest {
 
         verify(jdbcTemplate).query(
                 eq("SELECT isbn, title, author_id FROM books WHERE isbn = ? LIMIT 1"),
-                ArgumentMatchers.<BookDaoImpl.BookRawMapper>any(),
+                ArgumentMatchers.<BookDaoImpl.BookRowMapper>any(),
                 eq("123")
         );
     }
