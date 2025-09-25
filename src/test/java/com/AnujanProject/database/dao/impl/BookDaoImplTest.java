@@ -2,6 +2,7 @@ package com.AnujanProject.database.dao.impl;
 
 import com.AnujanProject.database.Dao.impl.BookDaoImpl;
 import com.AnujanProject.database.TestDataUtil;
+import com.AnujanProject.database.domain.Author;
 import com.AnujanProject.database.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -52,6 +53,29 @@ public class BookDaoImplTest {
         verify(jdbcTemplate).query(
                 eq("SELECT isbn, title, author_id FROM books"),
                 ArgumentMatchers.<BookDaoImpl.BookRowMapper>any()
+        );
+    }
+
+    @Test
+    public void testThatUpdatedGeneratesCorrectSql(){
+        Book book = TestDataUtil.createTestBook1();
+        underTest.update("321", book);
+
+        verify(jdbcTemplate).update(
+          eq("UPDATE books SET isbn = ?, title = ?, author_id = ? WHERE isbn = ?"),
+                eq("123"), eq("Titel"), eq(1L),eq("321")
+        );
+    }
+
+    @Test
+    public void testThatDeleteGeneratesCorrectSql(){
+        Book book = TestDataUtil.createTestBook1();
+        underTest.create(book);
+        underTest.delete("123");
+
+        verify(jdbcTemplate).update(
+                eq("DELETE FROM books WHERE isbn = ?"),
+                eq("123")
         );
     }
 }

@@ -4,11 +4,11 @@ Dieses Projekt ist eine **REST API mit Spring Boot**, die eine **H2-In-Memory-Da
 Der Fokus liegt auf **Lernen, Praxisbeispielen und Architekturverständnis** im Bereich moderner Java-Entwicklung.
 
 ## Technologien & Tools
-- **Spring Boot** – für die schnelle und produktive Entwicklung
-- **H2 Database** – In-Memory-Datenbank zum Testen und Entwickeln
-- **Maven** – Build- und Dependency-Management
+- **Spring Boot** - für die schnelle und produktive Entwicklung
+- **H2 Database** - In-Memory-Datenbank zum Testen und Entwickeln
+- **Maven** - Build- und Dependency-Management
 - **Test Driven Development (TDD)** – Entwicklung begleitet durch Unit- und Integrationstests
-- **(geplant) Docker** – Containerisierung für einfaches Deployment
+
 
 ## Features
 - REST API mit CRUD-Operationen
@@ -19,11 +19,9 @@ Der Fokus liegt auf **Lernen, Praxisbeispielen und Architekturverständnis** im 
 - Vertiefung meiner Kenntnisse in **Spring Boot** und **API-Design**
 - Anwendung von **Test Driven Development**
 - Aufbau von Verständnis für **Softwarearchitektur**
-- Vorbereitung auf den Einsatz von **Cloud- und Container-Technologien**
 
-## Status
-🚧 Das Projekt wird kontinuierlich erweitert und verbessert.  
-Geplante nächste Schritte:
-- Integration von Docker
-- Erweiterung der Testabdeckung
-- Implementierung von fehlenden CRUD-Operationen
+## Hinweis: Kein JPA
+In diesem Projekt wurde **bewusst auf JPA / Hibernate verzichtet**,  
+um den direkten Umgang mit **JDBC** und den darunterliegenden Mechanismen  
+(z. B. SQL-Queries, Connection-Handling) zu üben
+

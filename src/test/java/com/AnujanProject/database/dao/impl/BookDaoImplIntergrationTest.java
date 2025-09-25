@@ -58,4 +58,32 @@ public class BookDaoImplIntergrationTest {
         assertThat(books).hasSize(2);
         assertThat(books).containsExactly(book1, book2);
     }
+
+    @Test
+    public void testThatBookCanBeUpdated(){
+        Author author = TestDataUtil.createTestAuthor1();
+        authorDao.create(author);
+
+        Book book = TestDataUtil.createTestBook1();
+        underTest.create(book);
+        book.setTitle("Updated");
+        underTest.update(book.getIsbn(),book);
+        Optional<Book> result = underTest.find(book.getIsbn());
+
+        assertThat(result).isPresent();
+        assertThat(result.get().getTitle()).isEqualTo("Updated");
+    }
+
+    @Test
+    public void testThatBookCanBeDeleted(){
+        Author author = TestDataUtil.createTestAuthor1();
+        authorDao.create(author);
+
+        Book book = TestDataUtil.createTestBook1();
+        underTest.create(book);
+        underTest.delete(book.getIsbn());
+        Optional<Book> result = underTest.find(book.getIsbn());
+
+        assertThat(result).isEmpty();
+    }
 }

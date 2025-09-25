@@ -66,4 +66,16 @@ public class AuthorDaoImplTest {
                eq(1L), eq("Hohenheim"), eq(88), eq(2L)
        );
     }
+
+    @Test
+    public void testThatDeleteGeneratesCorrectSql(){
+       Author author = TestDataUtil.createTestAuthor1();
+       underTest.create(author);
+       underTest.delete(1L);
+
+       verify(jdbcTemplate).update(
+         eq("DELETE FROM authors WHERE id = ?"),
+              eq(1L)
+       );
+    }
 }
