@@ -26,20 +26,18 @@ public final class TestDataUtil {
     }
 
     public static Book createTestBook1() {
-        Book book = Book.builder()
+        return Book.builder()
                 .isbn("123")
                 .title("Titel")
                 .authorId(1L)
                 .build();
-        return book;
     }
 
     public static Book createTestBook2() {
-        Book book = Book.builder()
+        return Book.builder()
                 .isbn("321")
                 .title("Buch")
                 .authorId(1L)
                 .build();
-        return book;
     }
 }
